@@ -10,3 +10,32 @@
   firebase.initializeApp(config);
 
 var database = firebase.database();
+var trainName = "";
+var destination = "";
+var firstTtime = "";
+var frequency = "";
+
+$("#submit-btn").click(function(){
+  var trainName = $("#trainName").val().trim()
+  var destination = $("#destination").val().trim()
+
+  $("#trainName").val("")
+  $("#destination").val("")
+
+  database.ref().push({
+  trainName,
+  destination,
+  dateAdded: firebase.database.ServerValue.TIMESTAMP
+
+  });
+})
+
+database.ref().on("child_added", function (snapshot){
+  var sv = snapshot.val();
+$('tbody').append(`<tr>
+                  <td>${sv.trainName}</td>
+                  <td>${sv.destination}</td>
+                  </tr>`
+
+       );
+})
