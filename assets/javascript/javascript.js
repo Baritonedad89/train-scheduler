@@ -25,8 +25,8 @@ $("#submit-btn").click(function(){
   var firstTtime = $("#firstTtime").val().trim()
 
 
-  var firstTimeConverted = moment(firstTtime, "HH:mm");
-  console.log(`first train time last year: ${firstTimeConverted}`);
+  var firstTimeConverted = moment(firstTtime, "HH:mm").subtract(1, "days");
+  console.log(`first train of the day: ${firstTimeConverted}`);
 
   var convertTimeIntoUnix = moment(firstTimeConverted).format("X")
   console.log(`first train time converted into unix time: ${convertTimeIntoUnix}`)
@@ -42,6 +42,11 @@ $("#submit-btn").click(function(){
 
     var tMinutesTillTrain = frequency - tRemainder;
         console.log(`MINUTES TILL TRAIN: ${tMinutesTillTrain}`);
+        // Next Train
+  var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+var arrivalTime = moment(nextTrain).format("hh:mm")
+
+  console.log(`ARRIVAL TIME: ${arrivalTime}`);
 
 
 
