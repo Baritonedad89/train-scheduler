@@ -10,10 +10,7 @@
   firebase.initializeApp(config);
 
 var database = firebase.database();
-// var trainName = "";
-// var destination = "";
-// var firstTtime = "";
-// var frequency = "";
+
 
 $("#submit-btn").click(function(){
   event.preventDefault();
@@ -27,20 +24,24 @@ $("#submit-btn").click(function(){
 
 
 
-// clears out the input
-  // $("#trainName").val("")
-  // $("#destination").val("")
-  // $("#frequency").val("")
-  // $("#firstTtime").val("")
+
 
 // pushes the captured input on the firebase database
   database.ref().push({
   trainName,
   destination,
   frequency,
+  firstTtime,
   dateAdded: firebase.database.ServerValue.TIMESTAMP
 
+
   });
+  // clears out the input
+    $("#trainName").val("")
+    $("#destination").val("")
+    $("#frequency").val("")
+    $("#firstTtime").val("")
+
 })
 
 
@@ -48,10 +49,11 @@ database.ref().on("child_added", function (snapshot){
 var trainNameDB = snapshot.val().trainName
 var destinationDB = snapshot.val().destination
 var frequencyDB = snapshot.val().frequency
-var firstTtime = $("#firstTtime").val().trim();
+var firstTtimeDB = snapshot.val().firstTtime
+
 
 // code to get the train information
-  var firstTimeConverted = moment(firstTtime, "HH:mm a").subtract(1, "years");
+  var firstTimeConverted = moment(firstTtimeDB, "HH:mm a").subtract(1, "years");
   console.log(`first train of the day: ${firstTimeConverted}`);
 
   var convertTimeIntoUnix = moment(firstTimeConverted).format("X")
