@@ -1,3 +1,5 @@
+$('document').ready(function() {
+
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyBqXLjTvAXHCDVfAehYtcIPZThpJbNwCmI",
@@ -50,13 +52,29 @@
     var destinationDB = snapshot.val().destination
     var frequencyDB = snapshot.val().frequency
     var firstTtimeDB = snapshot.val().firstTtime
+    
+// trying to update every minute on display
+    function getDataUpdate() {
+      database.ref().on("value", function(snapshot) {
+        var sv = snapshot.val();
+        var newRow = $("<tr>").append(
+          `<td>${sv.trainName}</td>
+                <td>${sv.destination}</td>
+                <td>${sv.frequency}</td>
+                <td>${arrivalTime}</td>
+                <td>${tMinutesTillTrain}</td>`
+                  );
+      })
+
+    }
+
+
+
 
 
     // code to get the train information
     var firstTimeConverted = moment(firstTtimeDB, "HH:mm A");
     console.log(`first train of the day: ${firstTimeConverted}`);
-
-
 
     var thisMomentInUnix = moment().format("X");
     console.log(`This moment in unix time ${thisMomentInUnix}`)
@@ -76,8 +94,6 @@
     console.log(`ARRIVAL TIME: ${arrivalTime}`);
 
 
-
-
     var sv = snapshot.val();
     var newRow = $("<tr>").append(
       `<td>${sv.trainName}</td>
@@ -85,10 +101,13 @@
             <td>${sv.frequency}</td>
             <td>${arrivalTime}</td>
             <td>${tMinutesTillTrain}</td>`
-
-
     );
 
     $("#train-tracker > tbody").append(newRow);
-
   })
+
+
+setInterval(getDataUpdate, 1000)
+
+// document.ready closing bracket
+})
