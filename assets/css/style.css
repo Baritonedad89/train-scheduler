@@ -1,3 +1,6 @@
 .second-div {
   margin-top: 50px;
 }
+.edit-btn:hover {
+  font-size: 1.5em;
+}
