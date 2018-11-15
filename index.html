@@ -9,30 +9,29 @@
   <title>Train Scheduler</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Special+Elite" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4 text-center">C'mon Ride the Train!</h1>
-      <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-    </div>
-  </div>
-
   <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4 text-center title">C'mon Ride the Train!</h1>
+      </div>
+    </div>
     <div class="row">
       <div class="col-lg">
 
         <!-- current train schedule div -->
         <div class="card">
 
-          <div class="card-header">
+          <div class="card-header headers card-background">
             Current Train Schedule
           </div>
 
           <div class="card-body">
-            <table class="table table-bordered" id="train-tracker">
+            <table class="table table-bordered table-responsive-xl" id="train-tracker">
               <thead>
               <tbody>
 
@@ -57,7 +56,7 @@
         <div class="second-div">
 
           <div class="card">
-            <div class="card-header">
+            <div class="card-header headers card-background">
               Add a train
             </div>
             <div class="card-body">
@@ -75,7 +74,7 @@
                 <label for="frequency">Frequency</label>
                 <input class="form-control form-control-lg mb-3" id="frequency" name="frequency" type="number" min="1" max="60" step="1" required>
 
-                <button type="submit" class="btn btn-dark" id="submit-btn" value="submit">Submit</button>
+                <button type="submit" class="btn" id="submit-btn" value="submit">Submit</button>
               </form>
             </div>
           </div>

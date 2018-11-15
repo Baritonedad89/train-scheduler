@@ -1,6 +1,56 @@
+body {
+  background: #D8DADD
+}
+
 .second-div {
   margin-top: 50px;
 }
 .edit-btn:hover {
-  font-size: 1.5em;
+opacity: 0.6;
+}
+
+h1, button {
+  font-family: 'Special Elite', cursive;
+}
+
+tr, label, input {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.title {
+  font-size: 75px;
+}
+
+.headers {
+  font-family: 'Special Elite', cursive;
+  font-size: 30px;
+  color: white;
+}
+
+a {
+  padding: 10px;
+}
+
+.card-background {
+  background: #13138C;
+}
+
+button {
+background: #13138C;
+color: white;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.jumbotron {
+  background: #13138C;
+  color: white;
+  border: 1px solid black;
+
+}
+
+.card {
+  border: 1px solid black;
 }
