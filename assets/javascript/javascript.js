@@ -27,7 +27,9 @@ $('document').ready(function() {
     console.log(email)
     // sign in
     const promise = auth.signInWithEmailAndPassword(email, pass);
-    promise.catch(e => console.log(e.message));
+    promise.catch(e => $(".error-message").text(e.message));
+    emailTxt.val("")
+    passwordTxt.val("")
   });
 
   $("#signupBtn").on("click", e => {
@@ -51,19 +53,17 @@ $('document').ready(function() {
       $("#logoutBtn").removeClass("hidden")
       $(".container-two").removeClass("hidden")
       $(".container-one").addClass("hidden")
-
       console.log(firebaseUser);
+
     } else {
       $(".container-one").removeClass("hidden")
       $(".container-two").addClass("hidden")
       $("#logoutBtn").addClass("hidden")
       console.log('not logged in')
-      // $(".container-one").removeClass("shown").addClass("hidden")
-
     }
   });
 
-
+  // log out buttons
   $("#logoutBtn").on("click", e => {
     firebase.auth().signOut();
   });
@@ -71,17 +71,9 @@ $('document').ready(function() {
     firebase.auth().signOut();
   });
 
-
-
-
-
-
-
-
-
   var database = firebase.database();
 
-
+// capture user input
   $("#submit-btn").click(function() {
     event.preventDefault();
     // grab values from the inputs
@@ -107,6 +99,7 @@ $('document').ready(function() {
     $("#firstTtime").val("")
   })
 
+// database
   database.ref().on("child_added", function(snapshot) {
     var trainNameDB = snapshot.val().trainName
     var destinationDB = snapshot.val().destination

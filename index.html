@@ -14,6 +14,7 @@
 </head>
 
 <body>
+  <!-- authentication container -->
   <div class="container container-one">
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
@@ -23,7 +24,6 @@
     <div class="row">
       <div class="col-lg">
         <div class="card">
-
           <div class="card-header headers card-background text-center">
             Enter login information or sign up
           </div>
@@ -33,31 +33,25 @@
             <button id="loginBtn" class="btn">Log in</button>
             <button id="signupBtn" class="btn">Sign up</button>
             <button id="logoutBtn" class="btn hidden">Log out</button>
+            <p class="error-message"></p>
           </div>
-
-          <!-- container div end  -->
         </div>
       </div>
     </div>
+
+    <!-- auth container div end  -->
   </div>
 
-
-
-
-
-
-
-
-
-
-  <!--  -->
+  <!-- main page container -->
   <div class="container container-two hidden">
-    <div class="container">
-      <div class="card-body text-center">
-        <button id="homeLogoutBtn" class="btn">Log out</button>
-      </div>
-      <div class="jumbotron jumbotron-fluid">
-        <h1 class="display-4 text-center title">C'mon Ride the Train!</h1>
+    <div class="row">
+      <div class="col-lg">
+        <div class="card-body text-center">
+          <button id="homeLogoutBtn" class="btn">Log out</button>
+        </div>
+        <div class="jumbotron jumbotron-fluid">
+          <h1 class="display-4 text-center title">C'mon Ride the Train!</h1>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -65,16 +59,13 @@
 
         <!-- current train schedule div -->
         <div class="card">
-
           <div class="card-header headers card-background">
             Current Train Schedule
           </div>
-
           <div class="card-body">
             <table class="table table-bordered table-responsive-xl" id="train-tracker">
               <thead>
               <tbody>
-
                 <tr>
                   <th scope="col">Train Name</th>
                   <th scope="col">Destination</th>
@@ -82,7 +73,6 @@
                   <th scope="col">Next Arrival</th>
                   <th scope="col">Minutes Away</th>
                   <th scope="col">Edit</th>
-
                 </tr>
               </tbody>
               </thead>
@@ -90,7 +80,6 @@
             </table>
           </div>
         </div>
-
 
         <!-- add a train div -->
         <div class="second-div">
@@ -119,10 +108,8 @@
             </div>
           </div>
         </div>
-
         <!-- row ending div -->
       </div>
-
       <!-- col ending div -->
     </div>
 

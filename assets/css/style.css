@@ -6,15 +6,12 @@ body {
   display: none;
 }
 
-
-
-
-
 .second-div {
   margin-top: 50px;
 }
+
 .edit-btn:hover {
-opacity: 0.6;
+  opacity: 0.6;
 }
 
 h1, button {
@@ -44,8 +41,8 @@ a {
 }
 
 button {
-background: #13138C;
-color: white;
+  background: #13138C;
+  color: white;
 }
 
 button:hover {
@@ -56,9 +53,12 @@ button:hover {
   background: #13138C;
   color: white;
   border: 1px solid black;
-
 }
 
 .card {
   border: 1px solid black;
+}
+
+.error-message {
+  color: red; 
 }
