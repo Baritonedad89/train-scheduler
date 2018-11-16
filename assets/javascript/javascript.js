@@ -11,77 +11,65 @@ $('document').ready(function() {
   };
   firebase.initializeApp(config);
 
-// get login page elements
-const emailTxt = $("#txtEmail");
-const passwordTxt = $("#txtPassword");
-const loginBtn = $("#loginBtn")
-const signupBtn = $("#signupBtn")
-const logoutBtn= $("#logoutBtn")
+  // get login page elements
+  const emailTxt = $("#txtEmail");
+  const passwordTxt = $("#txtPassword");
+  const loginBtn = $("#loginBtn")
+  const signupBtn = $("#signupBtn")
+  const logoutBtn = $("#logoutBtn")
 
-// add login event
-$("#loginBtn").on("click", e => {
-// get email and password fields
-const email = emailTxt.val();
-const pass = passwordTxt.val();
-const auth = firebase.auth();
-console.log(email)
-// sign in
-const promise = auth.signInWithEmailAndPassword(email, pass);
-promise.catch(e => console.log(e.message));
-});
+  // add login event
+  $("#loginBtn").on("click", e => {
+    // get email and password fields
+    const email = emailTxt.val();
+    const pass = passwordTxt.val();
+    const auth = firebase.auth();
+    console.log(email)
+    // sign in
+    const promise = auth.signInWithEmailAndPassword(email, pass);
+    promise.catch(e => console.log(e.message));
+  });
 
-$("#signupBtn").on("click", e => {
-  // get email and password
-  // TODO: check for real email validation
-  const email = emailTxt.val();
-  const pass = passwordTxt.val();
-  const auth = firebase.auth();
-  console.log(email)
-  // sign in
-  const promise = auth.createUserWithEmailAndPassword(email, pass);
-  promise.catch(e => console.log(e.message));
-  emailTxt.val("")
-  passwordTxt.val("")
+  $("#signupBtn").on("click", e => {
+    // get email and password
+    // TODO: check for real email validation
+    const email = emailTxt.val();
+    const pass = passwordTxt.val();
+    const auth = firebase.auth();
+    console.log(email)
+    // sign in
+    const promise = auth.createUserWithEmailAndPassword(email, pass);
+    promise.catch(e => console.log(e.message));
+    emailTxt.val("")
+    passwordTxt.val("")
   })
 
-// add a realtime listener
-firebase.auth().onAuthStateChanged(firebaseUser => {
-if (firebaseUser) {
-  console.log("you're logged in")
-$("#logoutBtn").removeClass("hidden")
-$(".container-two").removeClass("hidden")
-$(".container-one").addClass("hidden")
+  // add a realtime listener
+  firebase.auth().onAuthStateChanged(firebaseUser => {
+    if (firebaseUser) {
+      console.log("you're logged in")
+      $("#logoutBtn").removeClass("hidden")
+      $(".container-two").removeClass("hidden")
+      $(".container-one").addClass("hidden")
 
-  console.log(firebaseUser);
-} else {
-  $(".container-one").removeClass("hidden")
-  $(".container-two").addClass("hidden")
-  $("#logoutBtn").addClass("hidden")
-  console.log('not logged in')
-  // $(".container-one").removeClass("shown").addClass("hidden")
+      console.log(firebaseUser);
+    } else {
+      $(".container-one").removeClass("hidden")
+      $(".container-two").addClass("hidden")
+      $("#logoutBtn").addClass("hidden")
+      console.log('not logged in')
+      // $(".container-one").removeClass("shown").addClass("hidden")
 
-}
-});
-
-
-$("#logoutBtn").on("click", e => {
-  firebase.auth().signOut();
-});
-$("#homeLogoutBtn").on("click", e => {
-  firebase.auth().signOut();
-});
+    }
+  });
 
 
-
-
-
-
-
-
-
-
-
-
+  $("#logoutBtn").on("click", e => {
+    firebase.auth().signOut();
+  });
+  $("#homeLogoutBtn").on("click", e => {
+    firebase.auth().signOut();
+  });
 
 
 
