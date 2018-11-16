@@ -2,6 +2,14 @@ body {
   background: #D8DADD
 }
 
+.hidden {
+  display: none;
+}
+
+
+
+
+
 .second-div {
   margin-top: 50px;
 }
