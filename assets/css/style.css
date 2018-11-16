@@ -60,5 +60,16 @@ button:hover {
 }
 
 .error-message {
-  color: red; 
+  color: red;
+}
+.top-message {
+  background: #76EE00;
+  color: white;
+  font-size: 40px;
+}
+
+.entry-message{
+  background: #76EE00;
+  color: white;
+  font-size: 40px;
 }

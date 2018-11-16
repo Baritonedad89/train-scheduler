@@ -53,6 +53,7 @@ $('document').ready(function() {
       $("#logoutBtn").removeClass("hidden")
       $(".container-two").removeClass("hidden")
       $(".container-one").addClass("hidden")
+      $(".top-message").hide().fadeIn(2000).delay(3000).slideUp();
       console.log(firebaseUser);
 
     } else {
@@ -97,6 +98,8 @@ $('document').ready(function() {
     $("#destination").val("")
     $("#frequency").val("")
     $("#firstTtime").val("")
+    $(".entry-message").html("<p>Your entry has been saved</p>").fadeIn(2000).delay(3000).slideUp();
+
   })
 
 // database
